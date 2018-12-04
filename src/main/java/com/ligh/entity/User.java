@@ -12,6 +12,8 @@ public class User {
 
     private Integer age;
 
+    private String desc;
+
     // locale 表示地区 zh 中国
     //timezone 时间区  中国在东八区
 
@@ -21,10 +23,19 @@ public class User {
     public User() {
     }
 
-    public User(String name, Integer age, Date birth) {
+    public User(String name, Integer age, String desc, Date birth) {
         this.name = name;
         this.age = age;
+        this.desc = desc;
         this.birth = birth;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getName() {

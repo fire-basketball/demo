@@ -1,0 +1,18 @@
+
+thymeleaf常用标签的使用方法:
+
+    条件判断  th:if               th:unless 与 th:if
+
+    循环 th:each                  text与utext
+
+    th:switch与th:case
+
+
+SpringBoot配置全局的异常捕获
+
+页面跳转形式
+
+ajax形式
+
+统一返回异常的形式
+

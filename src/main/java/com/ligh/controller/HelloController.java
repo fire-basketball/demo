@@ -6,6 +6,7 @@ import com.ligh.util.InfoCode;
 import com.ligh.util.RespInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class HelloController {
     @RequestMapping("hello")
     @ResponseBody
     public Object hello(){
-        User user = new User("李国辉", 26, new Date());
+        User user = new User("李国辉", 26, "哈哈",new Date());
         RespInfo respInfo = new RespInfo();
         respInfo.setMessage("人物信息:");
         respInfo.setStatus(InfoCode.SUCCESS);
@@ -38,4 +39,5 @@ public class HelloController {
         respInfo.setContent(bean);
         return respInfo;
     }
+
 }
