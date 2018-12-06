@@ -11,7 +11,7 @@ public class ExceptionHandler {
 
     public static final String ERROR_VIEW = "error";
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
+   /* @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
     public Object errorHandler(HttpServletRequest request, HttpServletResponse response,Exception e)throws Exception{
         e.printStackTrace();
 
@@ -20,5 +20,24 @@ public class ExceptionHandler {
         view.addObject("url",request.getRequestURL());
         view.setViewName(ERROR_VIEW);
         return view;
+    }*/
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
+    public Object errorHandler(HttpServletRequest request,HttpServletResponse response,Exception e) throws Exception{
+        e.printStackTrace();
+        if(isAjax(request)){
+            return response;
+        }else {
+            ModelAndView view = new ModelAndView();
+            view.addObject("exception",e);
+            view.addObject("url",request.getRequestURL());
+            view.setViewName(ERROR_VIEW);
+            return view;
+        }
+
+    }
+
+    public static Boolean isAjax(HttpServletRequest request){
+        return (request.getHeader("X-Requested-With") != null && "XMLHttpRequest"
+        .equals(request.getHeader("X-Request-With").toString()));
     }
 }

@@ -16,3 +16,33 @@ ajax形式
 
 统一返回异常的形式
 
+
+
+
+一.springboot整合定时任务task
+
+
+    在启动类中使用注解@EnableScheduling开启定时任务,会自动扫描
+
+    定义@Component作为组件被容器扫描
+
+    在线表达式生成器地址   http://cron.qqe2.com/
+
+
+二.Springboot异步执行程序
+
+    在启动类中使用注解@EnableAsync开启异步,会自动扫描,和定时任务一样
+
+    定义@Component @Async作为组件被容器扫描执行
+
+
+三.Springboot拦截器的使用
+
+    使用注解@Configuration配置拦截器
+
+    继承WebMvcConfigurerAdapter
+
+    重写addInterceptors添加需要的拦截器地址
+
+
+
